@@ -19,7 +19,7 @@ function drawLine(xStart, yStart, xEnd, yEnd) {
   ctx.stroke();
 }
 
-// function to draw a circle
+// function to draw a circle around mouse's position
 function drawCircle(x, y, radius) {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, Math.PI * 2);
@@ -45,6 +45,7 @@ function handleMouseMove(event) {
     
     // Level 2-- The canvas is divided into two halves and on user's mouse over one half, a mirror image of the circle is shown in the other half.
     drawLine(canvasWidth / 2, 0, canvasWidth / 2, canvasHeight);
+    
     if (mouseX < canvasWidth / 2) {
       drawCircle(mouseX, mouseY, radius);
       drawCircle(canvasWidth - mouseX, mouseY, radius);
@@ -57,6 +58,7 @@ function handleMouseMove(event) {
     // Level 3-- The canvas is divided into four quadrants and on user's mouse over one quadrant, and a mirror image of the circle is shown in other three quadrants.
     drawLine(canvasWidth / 2, 0, canvasWidth / 2, canvasHeight);
     drawLine(0, canvasHeight / 2, canvasWidth, canvasHeight / 2);
+    
     if (mouseX < canvasWidth / 2 && mouseY < canvasHeight / 2) {
       drawCircle(mouseX, mouseY, radius);
       drawCircle(canvasWidth - mouseX, mouseY, radius);
